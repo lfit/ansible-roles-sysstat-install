@@ -1,2 +1,27 @@
 ---
-# tasks file for sysstat-install
+- name: Install sysstat package
+  package: name=sysstat state=present
+  become: true
+
+- name: Enable sysstat service
+  service: name=sysstat enabled=true
+  become: true
+
+- name: Enable sysstat
+  lineinfile:
+    path: /etc/default/sysstat
+    regexp: '^ENABLED='
+    line: 'ENABLED="true"'
+    create: true
+  when: ansible_os_family == 'Debian'
+  become: true
+
+- name: Copy sysstat configuration
+  copy:
+    src: '../files/sysstat-{{ansible_os_family}}.cron'
+    dest: /etc/cron.d/sysstat
+    owner: root
+    group: root
+    mode: 0644
+    backup: true
+  become: true
