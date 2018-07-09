@@ -1,2 +1,2 @@
 ---
-# defaults file for sysstat-install
+sysstat_service_enable: true

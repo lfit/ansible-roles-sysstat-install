@@ -6,13 +6,20 @@ driver:
 lint:
   name: yamllint
 platforms:
-  # Disable until we have a solution to systemctl not working in centos7 docker
-  # - name: centos7
-  #   image: centos:7
+  - name: centos7
+    image: centos:7
+    groups:
+      - centos
   - name: ubuntu1604
     image: ubuntu:16.04
 provisioner:
   name: ansible
+  inventory:
+    group_vars:
+      # Because CentOS is a docker container and doesn't include
+      # systemd, we must ensure the service task is skipped
+      centos:
+        sysstat_service_enable: false
   lint:
     name: ansible-lint
 scenario:
