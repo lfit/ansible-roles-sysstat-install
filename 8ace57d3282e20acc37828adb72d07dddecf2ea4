@@ -1,0 +1,7 @@
+Verified+1: Jenkins CI <releng+lf-jenkins@linuxfoundation.org>
+Code-Review+2: Thanh Ha <thanh.ha@linuxfoundation.org>
+Submitted-by: Thanh Ha <thanh.ha@linuxfoundation.org>
+Submitted-at: Tue, 10 Jul 2018 17:48:08 +0000
+Reviewed-on: https://gerrit.linuxfoundation.org/infra/11704
+Project: ansible/roles/sysstat-install
+Branch: refs/heads/master
