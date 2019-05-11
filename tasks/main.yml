@@ -19,7 +19,7 @@
 
 - name: Copy sysstat configuration
   copy:
-    src: '../files/sysstat-{{ansible_os_family}}.cron'
+    src: '../files/sysstat-{{ ansible_os_family }}.cron'
     dest: /etc/cron.d/sysstat
     owner: root
     group: root
