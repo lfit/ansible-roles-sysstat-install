@@ -3,15 +3,19 @@ dependency:
   name: galaxy
 driver:
   name: docker
-lint:
-  name: yamllint
+lint: |
+  set -e
+  yamllint .
+  ansible-lint tasks/*.yml
 platforms:
   - name: centos7
     image: centos:7
-    groups:
-      - centos
-  - name: ubuntu1604
-    image: ubuntu:16.04
+  - name: centos8
+    image: quay.io/centos/centos:stream8
+  - name: ubuntu1804
+    image: ubuntu:18.04
+  - name: ubuntu2004
+    image: ubuntu:20.04
 provisioner:
   name: ansible
   inventory:
@@ -20,8 +24,6 @@ provisioner:
       # systemd, we must ensure the service task is skipped
       centos:
         sysstat_service_enable: false
-  lint:
-    name: ansible-lint
 scenario:
   name: default
 verifier:
