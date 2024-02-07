@@ -1,24 +1,29 @@
 ---
 - name: Install sysstat package
-  package: name=sysstat state=present
+  ansible.builtin.package:
+    name: sysstat
+    state: present
   become: true
 
 - name: Enable sysstat service
-  service: name=sysstat enabled=true
+  ansible.builtin.service:
+    name: sysstat
+    enabled: true
   when: sysstat_service_enable
   become: true
 
 - name: Enable sysstat
-  lineinfile:
+  ansible.builtin.lineinfile:
     path: /etc/default/sysstat
     regexp: '^ENABLED='
     line: 'ENABLED="true"'
+    mode: 0644
     create: true
   when: ansible_os_family == 'Debian'
   become: true
 
 - name: Copy sysstat configuration
-  copy:
+  ansible.builtin.copy:
     src: 'sysstat-{{ ansible_os_family }}.cron'
     dest: /etc/cron.d/sysstat
     owner: root

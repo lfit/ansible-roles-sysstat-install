@@ -1,5 +1,18 @@
 ---
 - name: Prepare
   hosts: all
-  gather_facts: false
-  tasks: []
+  gather_facts: true
+
+  tasks:
+    - name: Update APT cache
+      apt:
+        update_cache: yes
+      when: ansible_distribution == 'Ubuntu'
+      become: true
+
+    - name: Install cron
+      yum:
+        name: cronie
+        state: present
+      when: ansible_os_family == 'RedHat'
+      become: true
