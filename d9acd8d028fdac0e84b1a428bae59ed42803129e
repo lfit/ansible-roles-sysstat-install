@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d27f320d_8286a5d2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 192
+      },
+      "writtenOn": "2024-02-08T18:22:07Z",
+      "side": 1,
+      "message": "This will probably just need to be the .pre-commit-config changes now that my change has been merged. I think the one big thing I want to note here is that we do NOT want to pin versions in tox.ini. While I know this can help stabilize builds, the issue is that just from py3.8 to py3.10, the versions ansible, molecule, ansible-lint, etc are wildly different.\n\nAt least until we drop 3.8 (hopefully in the next 9 months), I think we should just let pip install the latest versions of the requirements for each version of python.",
+      "revId": "d9acd8d028fdac0e84b1a428bae59ed42803129e",
+      "serverId": "f2a2391d-0403-4fa5-b183-4056999a8a09"
+    }
+  ]
+}
