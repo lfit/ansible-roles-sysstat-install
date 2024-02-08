@@ -1,0 +1,8 @@
+Verified+1: LFIT Required GHA <releng+lfit-required-gha@linuxfoundation.org>
+Verified+1: Jenkins CI <releng+lf-jenkins@linuxfoundation.org>
+Code-Review+2: Anil Belur <abelur@linuxfoundation.org>
+Submitted-by: Anil Belur <abelur@linuxfoundation.org>
+Submitted-at: Thu, 08 Feb 2024 03:43:30 +0000
+Reviewed-on: https://gerrit.linuxfoundation.org/infra/c/ansible/roles/sysstat-install/+/72624
+Project: ansible/roles/sysstat-install
+Branch: refs/heads/master
