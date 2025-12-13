@@ -9,7 +9,9 @@
   ansible.builtin.service:
     name: sysstat
     enabled: true
-  when: sysstat_service_enable
+  when:
+    - sysstat_service_enable
+    - ansible_facts['os_family'] == 'Debian'
   become: true
 
 - name: Enable sysstat
@@ -19,12 +21,12 @@
     line: 'ENABLED="true"'
     mode: 0644
     create: true
-  when: ansible_os_family == 'Debian'
+  when: ansible_facts['os_family'] == 'Debian'
   become: true
 
 - name: Copy sysstat configuration
   ansible.builtin.copy:
-    src: 'sysstat-{{ ansible_os_family }}.cron'
+    src: 'sysstat-{{ ansible_facts["os_family"] }}.cron'
     dest: /etc/cron.d/sysstat
     owner: root
     group: root

@@ -136,8 +136,6 @@ jobs:
           MOLECULE_PLATFORM_NAME: ${{ matrix.distro }}
           MOLECULE_PROJECT_DIRECTORY: ${{ github.workspace }}
           ANSIBLE_ROLES_PATH: ${{ github.workspace }}/..
-          ANSIBLE_FORCE_COLOR: "1"
-          MOLECULE_PLATFORM_NAME: ${{ matrix.distro }}
 
   vote:
     if: ${{ always() }}
