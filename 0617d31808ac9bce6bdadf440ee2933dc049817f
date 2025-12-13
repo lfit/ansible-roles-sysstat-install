@@ -1,0 +1,7 @@
+Code-Review+2: Anil Belur <abelur@linuxfoundation.org>
+Verified+1: LFIT Required GHA <releng+lfit-required-gha@linuxfoundation.org>
+Submitted-by: Anil Belur <abelur@linuxfoundation.org>
+Submitted-at: Sat, 13 Dec 2025 08:07:52 +0000
+Reviewed-on: https://gerrit.linuxfoundation.org/infra/c/ansible/roles/sysstat-install/+/73984
+Project: ansible/roles/sysstat-install
+Branch: refs/heads/master
