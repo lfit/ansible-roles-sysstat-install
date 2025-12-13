@@ -7,12 +7,12 @@
     - name: Update APT cache
       apt:
         update_cache: yes
-      when: ansible_distribution == 'Ubuntu'
+      when: ansible_facts['distribution'] == 'Ubuntu'
       become: true
 
     - name: Install cron
       yum:
         name: cronie
         state: present
-      when: ansible_os_family == 'RedHat'
+      when: ansible_facts['os_family'] == 'RedHat'
       become: true
